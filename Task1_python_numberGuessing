@@ -1,0 +1,34 @@
+import random
+
+def play_game():
+    num1 = random.randint(1, 100)
+    print("WELCOME")
+    val1 = input("Enter your name: ")
+    print("RULES:")
+    print("1. Guess a number")
+    print("2. If the feedback is 'Guess a lower number', try entering a lower number.")
+    print("3. If the feedback is 'Guess a higher number', try entering a higher number.")
+    print("\nNUMBER GUESSING GAME")
+    print("You have 10 attempts to guess.")
+    
+    for i in range(1, 11):
+        print("\nAttempt", i)
+        val = int(input("Guess a number: "))
+
+        if val == num1:
+            print("Congratulations,", val1 + "! You guessed the correct number!")
+            break
+        elif val > num1:
+            print("Guess a lower number.")
+        else:
+            print("Guess a higher number.")
+
+        if i == 10:
+            print("\nGame Over. You've run out of attempts.")
+            break
+
+    play_again = input("\nEnter '1' to play again or '2' to quit: ")
+    if play_again == '1':
+        play_game()
+
+play_game()
